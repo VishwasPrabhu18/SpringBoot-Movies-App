@@ -1,6 +1,8 @@
 import './App.css';
 import api from './api/axiosConfig';
 import { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Layout, Home } from "./components/index";
 
 function App() {
 
@@ -22,7 +24,12 @@ function App() {
   }, []);
 
   return (
-    <h1>Hello World</h1>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />} />
+        <Route path="/home" element={<Home movies={movies} />} />
+      </Routes>
+    </div>
   );
 }
 
